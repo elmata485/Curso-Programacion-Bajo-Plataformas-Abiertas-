@@ -57,7 +57,7 @@ Ruta=$3
 
 
 #Ruta existe?
-if [ ! -e "$ARCHIVO" ]; then
+if [ ! -e "$Ruta" ]; then
     echo "error:  la ruta de '$Ruta' no existe.Verifiquela y vuelva a intentar."
     exit 1
 fi
