@@ -37,6 +37,13 @@ if [ $# -ne 1 ];then
 	exit 1
 fi
 
+if ! command -v "$1" &>/dev/null; then
+    echo "Error: El comando/proceso '$1' no se encuentra en el sistema."
+    mostrar_ayuda
+    exit 1
+fi
+
+
 #Archivo
 LOGFILE="$1.log"
 echo "# Tiempo(s)   CPU(%)   MEM(%)" > "$LOGFILE"
