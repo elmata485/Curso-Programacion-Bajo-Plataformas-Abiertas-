@@ -1,0 +1,12 @@
+[Unit]
+Description=Servicio de Monitoreo de Cambios en Directorios
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /home/felipe-mata/Documentos/Curso-Programacion-Bajo-Plataformas-Abiertas-/lab_2/ejercicio_3/ejercicio3.sh
+WorkingDirectory=/home/felipe-mata/Documentos/Curso-Programacion-Bajo-Plataformas-Abiertas-/lab_2/ejercicio_3/monitoreo
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
