@@ -69,19 +69,16 @@ fi
 if getent group "$Grupo" > /dev/null; then
     echo "El grupo '$Grupo' ya existe."
 else
-    echo " El grupo '$Grupo' no existe. Se crea:"
     groupadd "$Grupo"
 fi
 
 
 #Usuario existe?
 if id "$Usuario" &>/dev/null; then
-    echo "El usuario '$Usuario' existe. Se agregará al grupo '$Grupo'."
+    echo "El usuario '$Usuario' existe"
     usermod -aG "$Grupo" "$Usuario"
 else
-    echo "El usuario '$Usuario' no existe. Se crea y se agrega al grupo '$Grupo'."
     useradd -m -g "$Grupo" "$Usuario"
-    echo "Usuario: '$Usuario'"\n " en  grupo '$Grupo'."
 fi
 
 #Pertenencia
