@@ -16,8 +16,9 @@ int main(int argc, char *argv[]) {
     printf("Ingrese un número: "); //Pedimos el número
     scanf("%d", &num);   //Lo scaneamos
 
-    int resultado = factorial(num); 
-    printf("%d! = %d\n", num, resultado);
+    
+    int resultado = factorial(num); //Asignamos al cálculo del factorial del número un espacio en memoria
+    printf("%d! = %d\n", num, resultado);//Lo mostramos al usuario
 
     return 0;
 }
