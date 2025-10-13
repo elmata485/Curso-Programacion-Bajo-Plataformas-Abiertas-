@@ -46,18 +46,35 @@ int main() {
 
 	//matriz de ejemplo 2
 
-	int mat_2[4][5] = {
+	int mat_2[5][5] = {
                 {3, 4, 10, 15, 94},
                 {11, 1, 8, 108, 41},
 		{0, -10, 115, 94, 108},
-		{17, 114, 163, 170, 11005}
+		{17, 114, 163, 170, 11005},
+		{2000, 102, 91, 18, 34}
         };
 
 	printf("La matriz a reordenar es: \n");
-        Imprimir_mat((int *)mat_2, 4, 5);
-        Bubblesort((int *)mat_2, 4 * 5);
+        Imprimir_mat((int *)mat_2, 5, 5);
+        Bubblesort((int *)mat_2, 5 * 5);
         printf("La matriz ya se ordenó, quedó de la siguiente manera: \n");
-        Imprimir_mat((int *)mat_2, 4, 5);
+        Imprimir_mat((int *)mat_2, 5, 5);
+	
 
+	//matriz de ejemplo 3
+
+        int mat_3[5][2] = {
+                {3, 4},
+                {11, 1},
+                {0, -10},
+                {17, 114},
+		{-1, -94}
+        };
+
+        printf("La matriz a reordenar es: \n");
+        Imprimir_mat((int *)mat_3, 5, 2);
+        Bubblesort((int *)mat_3, 5 * 2);
+        printf("La matriz ya se ordenó, quedó de la siguiente manera: \n");
+        Imprimir_mat((int *)mat_3, 5, 2);
 }
 
