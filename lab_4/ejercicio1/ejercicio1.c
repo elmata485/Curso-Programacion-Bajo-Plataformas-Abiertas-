@@ -32,7 +32,7 @@ void Bubblesort(int *ptr, int filasxcols){
 
 int main() {
 	
-//matriz de ejemplo
+	//matriz de ejemplo 1
 	int mat_1[2][3] = {
 		{3, 4, 10},
 		{11, 1, 8}
@@ -43,5 +43,21 @@ int main() {
 	Bubblesort((int *)mat_1, 2 * 3);
 	printf("La matriz ya se ordenó, quedó de la siguiente manera: \n");
 	Imprimir_mat((int *)mat_1, 2, 3);	
+
+	//matriz de ejemplo 2
+
+	int mat_2[4][5] = {
+                {3, 4, 10, 15, 94},
+                {11, 1, 8, 108, 41},
+		{0, -10, 115, 94, 108},
+		{17, 114, 163, 170, 11005}
+        };
+
+	printf("La matriz a reordenar es: \n");
+        Imprimir_mat((int *)mat_2, 4, 5);
+        Bubblesort((int *)mat_2, 4 * 5);
+        printf("La matriz ya se ordenó, quedó de la siguiente manera: \n");
+        Imprimir_mat((int *)mat_2, 4, 5);
+
 }
 
