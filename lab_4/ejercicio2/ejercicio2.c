@@ -22,8 +22,7 @@ void limpiarPalabra(char *palabra) {
 
 int main(int argc, char *argv[]) {
     if (argc != 4) {
-        fprintf(stderr, "Uso: %s <archivo_entrada>
-			<palabra_buscar> <palabra_reemplazo> \n", argv[0]);
+        fprintf(stderr, "Uso: %s archivo_entrada palabra_buscar palabra_reemplazo\n", argv[0]);
         return 1;
     }// condición de que el usuario escriba los argumentos necesarios
 
@@ -43,6 +42,41 @@ int main(int argc, char *argv[]) {
         perror("Error al crear el archivo de salida");
         fclose(entrada);
         return 1;
+    }
+
+	
+
+    char buffer[1024]; //arreglo de caracteres para leer archivo
+		       //
+    while (fscanf(entrada, "%1023s", buffer) == 1) {
+        char palabraLimpia[1024];
+        strcpy(palabraLimpia, buffer);
+        limpiarPalabra(palabraLimpia);
+
+        if (strcmp(palabraLimpia, argv[2]) == 0) {
+            //si la palabra es la palbra a remplazar ...
+            // Primero imprime cualquier signo antes de la palabra
+            int i = 0;
+            while (buffer[i] && !isalnum((unsigned char)buffer[i])) {
+                fputc(buffer[i], salida);
+                i++;
+            }
+
+            // Imprime la palabra de reemplazo
+            fprintf(salida, "%s", argv[3]);
+
+            // Luego imprime cualquier signo después de la palabra
+            int len = strlen(buffer);
+            int j = len - 1;
+            while (j >= 0 && !isalnum((unsigned char)buffer[j])) {
+                fputc(buffer[j], salida);
+                j--;
+            }
+        } else {
+            fprintf(salida, "%s", buffer);//imprime en el documento nuevo
+        }
+
+        fputc(' ', salida);
     }
 
 
